@@ -10,9 +10,9 @@ import { useLocalStorage } from "./hooks/useLocalStorage";
 import { AuthContext } from "./context/AuthContext";
 import { ShareContext } from "./context/ShareContext";
 
-import "./App.css";
+
 import Header from "./components/common/Header/Header";
-import Footer from "./components/common/Header/Header";
+import Footer from "./components/common/Footer/Footer";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Catalog from "./components/Catalog/Catalog";
@@ -25,18 +25,22 @@ function App() {
 
   return (
     <AuthContext.Provider value={{}}>
-      <>
-        <Router>
-          <Header />
-          <Routes>
-            <ShareContext.Provider value={{}}>
-              <Route path="/" element={<Home />} />
-              {/* <Route path="/catalog" element={<ProtectedRoute><Catalog /></ProtectedRoute> } /> */}
-              <Route element={<ProtectRoute />}>
-                <Route element={<Catalog itemsPerPage={2} />} path="/catalog" />
-                {/* <Route path="/create" element={<CreateItem />} /> */}
-              </Route>
-              {/* <Route
+      <div>
+        <ShareContext.Provider value={{}}>
+          <Router>
+            <Header />
+            <main>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                {/* <Route path="/catalog" element={<ProtectedRoute><Catalog /></ProtectedRoute> } /> */}
+                {/* <Route element={<ProtectRoute />}> */}
+                  <Route
+                    element={<Catalog itemsPerPage={2} />}
+                    path="/catalog"
+                  />
+                  {/* <Route path="/create" element={<CreateItem />} /> */}
+                {/* </Route> */}
+                {/* <Route
                 path="/catalog/:gameId"
                 element={
                   <DetailItem
@@ -46,15 +50,16 @@ function App() {
                 }
               />
               <Route path="/catalog/:gameId/edit" element={<EditItem />} /> */}
-              {/* <Route path="/create" element={<CreateItem />} /> */}
-            </ShareContext.Provider>
-            <Route path="/login" element={<Login />} />
-            {/* <Route path="/logout" element={<Logout />} /> */}
-            <Route path="/register" element={<Register />} />
-          </Routes>
-        </Router>
+                {/* <Route path="/create" element={<CreateItem />} /> */}
+                <Route path="/login" element={<Login />} />
+                {/* <Route path="/logout" element={<Logout />} /> */}
+                <Route path="/register" element={<Register />} />
+              </Routes>
+            </main>
+          </Router>
+        </ShareContext.Provider>
         <Footer />
-      </>
+      </div>
     </AuthContext.Provider>
   );
 }

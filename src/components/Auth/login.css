@@ -1,0 +1,60 @@
+.login-container, .register-container {
+    margin: 130px auto;
+    width: 500px;
+    border: 1px solid #c8a275;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-color: #f7f7f7;
+    z-index: 0;
+}
+.login-wrapper, .register-wrapper {
+    padding: 50px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    margin: 5px;
+    border: 2px solid  #f7f7f7;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 25px;
+}
+input:focus {
+    border: 2px solid #c8a275;;
+
+}
+input:hover {
+    background-color: rgb(216, 236, 236);
+}
+input[type="submit"]:hover {
+    background-color:  #c5c1c1;
+    color: #e7a553;
+   
+}
+input[type="submit"] {
+    font-size: 40px;
+    font-weight: 600;
+    color: #c8a275;
+    font-family: 'Rouge Script', cursive;
+    border-radius: 10px;
+}
+label {
+    color: #c8a275;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 40px;
+    margin-top: 13px;
+    font-family: 'Rouge Script', cursive;
+}
+
+.logo-img {
+    width: 130px;
+    position: absolute;
+    top:390px;
+    left:450px;
+    z-index: 1;
+}

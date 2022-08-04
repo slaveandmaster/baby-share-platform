@@ -1,0 +1,27 @@
+h1,h2 {
+    text-align: center;
+    margin: 20px;
+    font-family: 'Rouge Script', cursive;
+    font-size: 40px;
+    color: #c8a275;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0 , 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.profile-email {
+    color: grey;
+    font-size: 18px;
+}
+.profile-email, .profile-role, .profile-phone {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.profile-phone {
+    padding-bottom: 20px;
+}

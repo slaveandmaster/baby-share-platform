@@ -1,4 +1,5 @@
 import React from "react";
+import Search from "../Search/Search";
 import './catalog.css';
 export default function Catalog() {
   return (
@@ -7,6 +8,7 @@ export default function Catalog() {
         <h3 className="catalog-items-title">
           <i className="fa-solid fa-circle-arrow-right"></i>Всички споделяния
         </h3>
+      <Search />
         <div className="catalog-wrapper">
           <article className="catalog-item">
             <article className="catalog-item-img">

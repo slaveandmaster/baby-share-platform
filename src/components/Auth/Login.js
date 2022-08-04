@@ -1,25 +1,49 @@
 import React from "react";
-import './login.css'
+import "./login.css";
+
+import * as AuthService from "../../services/AuthServices";
+
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Login() {
+  const { onLoginHandler } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  //handlers
+  const onLogin = (e) => {
+    e.preventDefault();
+    const { username, password } = Object.fromEntries(new FormData(e.target));
+    console.log(username);
+    AuthService.login(username, password)
+      .then((res) => {
+        console.log(res);
+        onLoginHandler(res);
+        navigate("/");
+      })
+      .catch(() => {
+        navigate("/NotFound");
+      });
+  };
   return (
     <div>
       <section className="login-container">
-        <form id="login">
+        <img className="logo-img" src="../images/logo2.png" />
+        <form id="login" onSubmit={onLogin}>
           <div className="login-wrapper">
-            <label for="email">Email</label>
+            <label htmlFor="username">Username</label>
             <input
               type="text"
-              name="email"
-              id="email"
-              placeholder="John@abv.bg"
+              name="username"
+              id="username"
+              placeholder="JohnDoe"
             />
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input type="password" name="password" id="password" />
-            <input type="submit" classNameName="btn submit" value="Login" />
+            <input type="submit" className="btn submit" value="Login" />
           </div>
         </form>
-        <img className="logo-img" src="../images/logo2.png" />
       </section>
     </div>
   );

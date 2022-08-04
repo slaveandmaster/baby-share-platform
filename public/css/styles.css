@@ -58,12 +58,13 @@ h1.site-info {
 .navigation {
     margin-top: 4px;
     margin-bottom:8px;
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;  
-    justify-content: space-between;  
+    justify-content: space-between;   */
 }
 
 .nav-list {
+    /* width: 1000px; */
     list-style: none;
     display: flex;
     justify-content:right;
@@ -79,20 +80,11 @@ h1.site-info {
     font-weight: bold;
     text-decoration: none;
 }
-.nav-list-item:hover {
+.nav-list-item:hover , button:hover {
     background-color: #c5c1c1;
+    font-weight: bold;
 }
 
-.profile-item {
-    
-        padding: 10px 20px;
-        /* border-radius: 3px;
-        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-        background-color: #f7f7f7; */
-        color: #c8a275;
-        font-weight: bold;
-   
-}
 .last-items-title {
     padding: 8px;
     background-color: #f7f7f7;

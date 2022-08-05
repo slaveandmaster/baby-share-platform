@@ -10,6 +10,7 @@ import { useLocalStorage } from "./hooks/useLocalStorage";
 import { AuthContext } from "./context/AuthContext";
 import { ShareContext } from "./context/ShareContext";
 
+import * as ShareService from './services/ShareService';
 
 import Header from "./components/common/Header/Header";
 import Footer from "./components/common/Footer/Footer";
@@ -27,6 +28,15 @@ function App() {
   const [shares, setShares] = useState([]);
   const [auth, setAuth] = useLocalStorage("auth", {});
   
+  //get all shares
+
+  useEffect(()=> {
+    ShareService.getAll().then((data)=> {
+      console.log(data);
+      setShares(data);
+    })
+  }, [])
+
   //handlers
   const onLoginHandler = (userData) => {
     console.log(userData);
@@ -37,10 +47,16 @@ function App() {
   const onLogoutHandler = () => {
     setAuth({});
   }
+
+  //on Search Handler
+  const onSearch = (searchData) => {
+    setShares(searchData);
+  };
+
   return (
     <AuthContext.Provider value={{auth, onLoginHandler, onLogoutHandler}}>
       <div>
-        <ShareContext.Provider value={{shares}}>
+        <ShareContext.Provider value={{shares, onSearch}}>
           <Router>
             <Header />
             <main>
@@ -49,7 +65,7 @@ function App() {
                 {/* <Route path="/catalog" element={<ProtectedRoute><Catalog /></ProtectedRoute> } /> */}
                 <Route element={<ProtectRoute />}>
                   <Route
-                    element={<Catalog itemsPerPage={2} />}
+                    element={<Catalog itemsPerPage={6} />}
                     path="/catalog"
                   />
                   <Route path="/create" element={<CreateItem />} />

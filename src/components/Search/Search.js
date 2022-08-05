@@ -3,7 +3,7 @@ import styles from "../Search/Search.module.css";
 import { useState } from "react";
 import { useContext } from "react";
 import { ShareContext } from "../../context/ShareContext";
-// import * as ShareService from "../../services/ShareService";
+import * as ShareService from "../../services/ShareService";
 
 export default function Search() {
   const [search, setSearch] = useState("");
@@ -11,7 +11,7 @@ export default function Search() {
   const { shares, onSearch } = useContext(ShareContext);
   //get all games with initial value of games array and keep reference to all games
   const [allShares, setAllShares] = useState(...shares);
-  //filter data by search term
+  //filter data by search term if search field empty return all records in other way return filtered data
   const filtered = !search
     ? allShares
     : shares.filter((share) =>
@@ -29,12 +29,12 @@ export default function Search() {
     onSearch(filtered);
   };
   //get all games
-  // useEffect(() => {
-  //   GameService.getAll().then((res) => {
-  //     setAllGame(res);
-  //     console.log(allShares);
-  //   });
-  // }, []);
+  useEffect(() => {
+    ShareService.getAll().then((res) => {
+      setAllShares(res);
+      console.log(allShares);
+    });
+  }, []);
 
   return (
     <div className={styles.searchForm}>

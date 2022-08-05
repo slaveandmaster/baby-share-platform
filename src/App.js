@@ -10,7 +10,7 @@ import { useLocalStorage } from "./hooks/useLocalStorage";
 import { AuthContext } from "./context/AuthContext";
 import { ShareContext } from "./context/ShareContext";
 
-import * as ShareService from './services/ShareService';
+import * as ShareService from "./services/ShareService";
 
 import Header from "./components/common/Header/Header";
 import Footer from "./components/common/Footer/Footer";
@@ -19,6 +19,7 @@ import Register from "./components/Auth/Register";
 import Home from "./components/Home/Home";
 import Catalog from "./components/Catalog/Catalog";
 import CreateItem from "./components/Catalog/CreateItem/CreateItem";
+import DetailsItem from "./components/Catalog/DetailsItem/DetailsItem";
 import ProtectRoute from "./guards/ProtectRoute";
 import NotFound from "./components/NotFound/NotFound";
 import Profile from "./components/Profile/Profile";
@@ -27,26 +28,26 @@ import Logout from "./components/Auth/Logout";
 function App() {
   const [shares, setShares] = useState([]);
   const [auth, setAuth] = useLocalStorage("auth", {});
-  
+
   //get all shares
 
-  useEffect(()=> {
-    ShareService.getAll().then((data)=> {
+  useEffect(() => {
+    ShareService.getAll().then((data) => {
       console.log(data);
       setShares(data);
-    })
-  }, [])
+    });
+  }, []);
 
   //handlers
   const onLoginHandler = (userData) => {
     console.log(userData);
-    setAuth(userData)
-  }
+    setAuth(userData);
+  };
 
   //logout handler
   const onLogoutHandler = () => {
     setAuth({});
-  }
+  };
 
   //on Search Handler
   const onSearch = (searchData) => {
@@ -54,9 +55,9 @@ function App() {
   };
 
   return (
-    <AuthContext.Provider value={{auth, onLoginHandler, onLogoutHandler}}>
+    <AuthContext.Provider value={{ auth, onLoginHandler, onLogoutHandler }}>
       <div>
-        <ShareContext.Provider value={{shares, onSearch}}>
+        <ShareContext.Provider value={{ shares, onSearch }}>
           <Router>
             <Header />
             <main>
@@ -70,6 +71,7 @@ function App() {
                   />
                   <Route path="/create" element={<CreateItem />} />
                   <Route path="/profile" element={<Profile />} />
+                  <Route path="/catalog/:shareId" element={<DetailsItem />} />
                 </Route>
                 {/* <Route
                 path="/catalog/:gameId"
@@ -85,7 +87,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/logout" element={<Logout />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/NotFound" element={<NotFound/>}/>
+                <Route path="/NotFound" element={<NotFound />} />
               </Routes>
             </main>
           </Router>

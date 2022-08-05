@@ -1,0 +1,136 @@
+h3 {
+    color: #c8a275;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 40px;
+    font-family: 'Rouge Script', cursive;
+}
+.details-container {
+    margin: 130px auto;
+    width: 900px;
+    border: 1px solid #c8a275;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-color: #f7f7f7;
+    display: flex;
+}
+input, select, textarea {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 5px;
+    border: 2px solid  #f7f7f7;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 25px;
+}
+input:focus {
+    border: 2px solid #c8a275;;
+
+}
+input:hover ,textarea:hover, select:hover {
+    background-color: rgb(216, 236, 236);
+}
+input[type="submit"]:hover {
+    background-color:  #c5c1c1;
+    color: #e7a553;
+   
+}
+
+input[type="submit"] {
+    font-size: 40px;
+    font-weight: 600;
+    color: #c8a275;
+    font-family: 'Rouge Script', cursive;
+    border-radius: 10px;
+}
+label {
+    color: #c8a275;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 40px;
+    margin-top: 13px;
+    font-family: 'Rouge Script', cursive;
+}
+
+.product-image {
+    width: 400px;
+    padding: 30px;
+    
+}
+
+.product-image img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.product-info {
+    width: 500px;
+    padding: 30px;
+}
+.list-details {
+    list-style-type: none;
+    text-decoration: none;
+}
+.list-details-item {
+    font-size: 18px;
+    font-weight: bold;
+    color:#c8a275
+    
+}
+li:not(:first-child) {
+    padding-top: 20px;
+}
+
+.product-buttons {
+    padding-top: 20px;
+    margin-left: 40px;
+}
+.product-buttons button {
+    padding: 10px 20px;
+    margin-right: 10px 
+}
+
+.user-review {
+    margin: 130px auto;
+    width: 900px;
+    border: 1px solid #c8a275;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding-left: 10px;
+}
+.review-comments {
+    margin: 0 auto;
+}
+.review-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 10px;
+    margin-top:10px;
+    border: 1px solid #c8a275;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.review-author, .review-comment {
+    padding-left: 5px;
+}
+
+.review-author {
+    font-size: 16px;
+    font-weight: bold;
+    color: #c8a275;
+}
+
+.user-info, .user-raiting {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #c8a275;
+}

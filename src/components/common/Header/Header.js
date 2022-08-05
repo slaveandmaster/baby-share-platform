@@ -47,7 +47,7 @@ export default function Header() {
         </ul>
       </nav>
       <section className="logo">
-        <img src="./images/logo2.png" alt="baby-logo" />
+        <img src="../images/logo2.png" alt="baby-logo" />
       </section>
     </div>
   );

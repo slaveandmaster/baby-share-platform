@@ -14,7 +14,7 @@ export default function Catalog({itemsPerPage}) {
   const { shares } = useContext(ShareContext);
 
   //pagination settings
-  const [currentItems, setCurrentItems] = useState(null);
+  const [currentItems, setCurrentItems] = useState([...shares]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   
@@ -33,7 +33,7 @@ export default function Catalog({itemsPerPage}) {
     );
     setItemOffset(newOffset);
   };
-  console.log(shares);
+  
   return (
     <div>
       <section className="catalog-items">
@@ -42,7 +42,7 @@ export default function Catalog({itemsPerPage}) {
         </h3>
       <Search />
         <div className="catalog-wrapper">
-          {shares.length > 0 ? (
+          {shares?.length > 0 ? (
             currentItems.map((s) => <CatalogItem key={s._id} share={s}/>)
           ) : (
             <h3> No Records</h3>

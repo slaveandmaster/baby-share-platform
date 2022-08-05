@@ -20,6 +20,7 @@ import Home from "./components/Home/Home";
 import Catalog from "./components/Catalog/Catalog";
 import CreateItem from "./components/Catalog/CreateItem/CreateItem";
 import DetailsItem from "./components/Catalog/DetailsItem/DetailsItem";
+import CatalogEdit from "./components/Catalog/CatalogEdit/CatalogEdit";
 import ProtectRoute from "./guards/ProtectRoute";
 import NotFound from "./components/NotFound/NotFound";
 import Profile from "./components/Profile/Profile";
@@ -54,10 +55,15 @@ function App() {
     setShares(searchData);
   };
 
+  //forms handlers
+  const onEdit =(shareId,data) => {
+    setShares((state) => state.map((item) => item._id === shareId ? data : item));
+  }
+
   return (
     <AuthContext.Provider value={{ auth, onLoginHandler, onLogoutHandler }}>
       <div>
-        <ShareContext.Provider value={{ shares, onSearch }}>
+        <ShareContext.Provider value={{ shares, onSearch, onEdit }}>
           <Router>
             <Header />
             <main>
@@ -72,6 +78,7 @@ function App() {
                   <Route path="/create" element={<CreateItem />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/catalog/:shareId" element={<DetailsItem />} />
+                  <Route path="/catalog/:shareId/edit" element={<CatalogEdit />} /> 
                 </Route>
                 {/* <Route
                 path="/catalog/:gameId"
@@ -82,7 +89,6 @@ function App() {
                   />
                 }
               />
-              <Route path="/catalog/:gameId/edit" element={<EditItem />} /> */}
                 {/* <Route path="/create" element={<CreateItem />} /> */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/logout" element={<Logout />} />

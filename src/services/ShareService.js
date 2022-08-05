@@ -22,3 +22,39 @@ export const getById = async (shareId) => {
     console.log(error);
   }
 };
+
+export const shareBydId = async (shareId) => {
+    try {
+        const result = await api.get(`${BASE_URL}/api/shares/${shareId}`);
+        return result;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const getCats = () => {
+    try {
+        const result = api.get(`${BASE_URL}/api/category`);
+        return result;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const getLastFive = () => {
+    try {
+        const result = api.get(`${BASE_URL}/api/shares`);
+        return result;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const remove = (shareId) => {
+    try {
+      const result = api.del(`${BASE_URL}/api/shares/${shareId}`);
+      return result;
+    } catch (error) {
+      console.log(error);
+    } 
+  }

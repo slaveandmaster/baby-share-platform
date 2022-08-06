@@ -44,7 +44,10 @@ function App() {
     console.log(userData);
     setAuth(userData);
   };
-
+  //register handler
+  const onRegister = (data) => {
+    setAuth({});
+  }
   //logout handler
   const onLogoutHandler = () => {
     setAuth({});
@@ -68,7 +71,7 @@ function App() {
   }
 
   return (
-    <AuthContext.Provider value={{ auth, onLoginHandler, onLogoutHandler }}>
+    <AuthContext.Provider value={{ auth, onLoginHandler, onRegister, onLogoutHandler }}>
       <div>
         <ShareContext.Provider value={{ shares, onSearch, onCreate , onDelete, onEdit }}>
           <Router>

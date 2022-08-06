@@ -21,6 +21,9 @@ export default function CatalogEdit() {
   const [categories, setCategories] = useState([]);
   const { onEdit } = useContext(ShareContext);
 
+  const [errors, setErrors] = useState({});
+  const isValid = !Object.values(errors).some((x) => x);
+
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -74,6 +77,16 @@ export default function CatalogEdit() {
     });
   }, [shareId]);
   // console.log(currentShare.category);
+
+ //TODO VALIDATIONS
+ //validate fields
+ const validateName = (e, len) => {
+  setErrors((errors) => ({
+    ...errors,
+    [e.target.name]: e.target.value.length < len,
+  }));
+};
+
   return (
     <div>
       <pre>{JSON.stringify(currentShare)}</pre>

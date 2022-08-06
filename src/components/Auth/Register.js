@@ -29,7 +29,7 @@ export default function Register() {
           return;
         }
         onRegister(res);
-        navigate("/");
+        navigate("/login");
       })
       .catch(() => {
         navigate("/404");

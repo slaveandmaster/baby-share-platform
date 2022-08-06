@@ -53,7 +53,7 @@ export default function CreateItem() {
       console.log(err);
     })
   }
-
+  //TODO VALIDATIONS
   return (
     <div><section className="create-container">
     <form id="create" onSubmit={onCreateItemHandler}>

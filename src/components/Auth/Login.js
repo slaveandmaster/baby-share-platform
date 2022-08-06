@@ -2,6 +2,7 @@ import React from "react";
 import "./login.css";
 
 import * as AuthService from "../../services/AuthServices";
+import { toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
@@ -20,12 +21,15 @@ export default function Login() {
       .then((res) => {
         console.log(res);
         onLoginHandler(res);
+        toast.success('Login successfuly!')
         navigate("/");
       })
       .catch(() => {
         navigate("/NotFound");
       });
   };
+
+  //TODO VALIDATIONS
   return (
     <div>
       <section className="login-container">

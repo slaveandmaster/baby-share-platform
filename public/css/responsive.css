@@ -1,0 +1,33 @@
+@media only screen and (max-width: 600px) {
+    body {
+        margin: 0 auto;
+        box-sizing: border-box;
+        max-width: 600px;
+        
+        
+    }
+    .header {
+        background-image: none;
+    }
+    .nav-list {
+        width: 560px;
+    }
+    .details-container, .user-review {
+        max-width: 600px;
+    }
+    .logo img {
+        position:absolute;
+        left: -140px;
+    }
+    div.item-wrapper {
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .top-list-avatars {
+        flex-direction: column;
+    }
+    .top-item-wrapper {
+        margin: 0 auto;
+    }
+    
+  }

@@ -10,7 +10,11 @@ import { useLocalStorage } from "./hooks/useLocalStorage";
 import { AuthContext } from "./context/AuthContext";
 import { ShareContext } from "./context/ShareContext";
 
+import { ToastContainer, toast } from "react-toastify";
+
 import * as ShareService from "./services/ShareService";
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import Header from "./components/common/Header/Header";
 import Footer from "./components/common/Footer/Footer";
@@ -47,7 +51,7 @@ function App() {
   //register handler
   const onRegister = (data) => {
     setAuth({});
-  }
+  };
   //logout handler
   const onLogoutHandler = () => {
     setAuth({});
@@ -60,20 +64,26 @@ function App() {
 
   //forms handlers
   const onCreate = (data) => {
-    setShares((oldData)=> [...oldData, data]);
-  }
+    setShares((oldData) => [...oldData, data]);
+  };
 
   const onDelete = (shareId) => {
     setShares((state) => state.filter((row) => row._id != shareId));
-  }
-  const onEdit =(shareId,data) => {
-    setShares((state) => state.map((item) => (item._id === shareId ? data : item)));
-  }
+  };
+  const onEdit = (shareId, data) => {
+    setShares((state) =>
+      state.map((item) => (item._id === shareId ? data : item))
+    );
+  };
 
   return (
-    <AuthContext.Provider value={{ auth, onLoginHandler, onRegister, onLogoutHandler }}>
+    <AuthContext.Provider
+      value={{ auth, onLoginHandler, onRegister, onLogoutHandler }}
+    >
       <div>
-        <ShareContext.Provider value={{ shares, onSearch, onCreate , onDelete, onEdit }}>
+        <ShareContext.Provider
+          value={{ shares, onSearch, onCreate, onDelete, onEdit }}
+        >
           <Router>
             <Header />
             <main>
@@ -88,7 +98,10 @@ function App() {
                   <Route path="/create" element={<CreateItem />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/catalog/:shareId" element={<DetailsItem />} />
-                  <Route path="/catalog/:shareId/edit" element={<CatalogEdit />} /> 
+                  <Route
+                    path="/catalog/:shareId/edit"
+                    element={<CatalogEdit />}
+                  />
                 </Route>
                 {/* <Route
                 path="/catalog/:gameId"
@@ -109,6 +122,17 @@ function App() {
           </Router>
         </ShareContext.Provider>
         <Footer />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     </AuthContext.Provider>
   );

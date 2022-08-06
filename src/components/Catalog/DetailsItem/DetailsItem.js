@@ -10,6 +10,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import { ShareContext } from "../../../context/ShareContext";
 
+import Rating from "./Rating/Rating";
+
 export default function DetailsItem() {
 
     const {auth} = useContext(AuthContext);
@@ -77,6 +79,8 @@ export default function DetailsItem() {
       </section>
       <section className="user-review">
         <article className="user-info">Published by: {share.userInfo?.username}</article>
+        <Rating value={4}
+            text={`1 reviews`} />
         <article className="user-raiting">Reviews: 50</article>
         <div className="reviews-list">
           <h3 className="review-header">Reviews:</h3>

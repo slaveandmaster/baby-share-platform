@@ -52,7 +52,7 @@ label {
     font-family: 'Rouge Script', cursive;
 }
 
-.logo-img {
+.login-container > .logo-img, .register-container > .logo-img {
     width: 130px;
     position: absolute;
     top:-140px;

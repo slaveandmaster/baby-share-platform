@@ -19,6 +19,11 @@ export default function DetailsItem() {
     const navigate = useNavigate();
     const [share, setShare] = useState([]);
 
+    const isOwner = !!(auth.id === share.userInfo?.owner);
+    const isAdmin = !!auth.isAdmin;
+
+    console.log(isOwner);
+
     console.log(shareId);
     console.log(share);
     //get share info
@@ -62,9 +67,12 @@ export default function DetailsItem() {
             </li>
             <li className="list-details-item">Contact: {share.userInfo?.email}</li>
           </ul>
+          {(isOwner || isAdmin) && 
+          
           <div className="product-buttons">
             <Link to={`/catalog/${share._id}/edit`}><button>Edit</button></Link><button onClick={() => deleteClickHandler(share._id)}>Delete</button>
           </div>
+          }
         </article>
       </section>
       <section className="user-review">

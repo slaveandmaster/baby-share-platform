@@ -1,4 +1,4 @@
-h3 {
+.review-header {
     color: #c8a275;
     font-weight: bold;
     margin-bottom: 8px;
@@ -87,10 +87,12 @@ li:not(:first-child) {
 .product-buttons {
     padding-top: 20px;
     margin-left: 40px;
+    
 }
 .product-buttons button {
     padding: 10px 20px;
-    margin-right: 10px 
+    margin-right: 10px;
+    border: 1px solid #c8a275;
 }
 
 .user-review {

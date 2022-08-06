@@ -68,17 +68,19 @@ div.catalog-wrapper {
 .pagination {
     display: flex;
     justify-content: center;
+    align-items: center;
     list-style: none;
     cursor: pointer;
     margin-bottom: 2rem;
     padding: 0 5rem;
+    gap:5px;
   }
   
   .pagination a {
     padding: 10px 15px;
     border-radius: 5px;
-    border: 1px solid #c8a275;;
-    color: #c8a275;;
+    border: 1px solid #c8a275;
+    color: #c8a275;
   }
   
   .pagination__link {

@@ -120,7 +120,6 @@ export default function Catalog({itemsPerPage}) {
             <button className="catalog-item-view">Преглед</button>
           </article> */}
         </div>
-        {/* Display paragraph: If there is no games  */}
         <ReactPaginate
           nextLabel="next >"
           onPageChange={handlePageClick}
@@ -141,6 +140,7 @@ export default function Catalog({itemsPerPage}) {
           activeClassName="active"
           renderOnZeroPageCount={null}
         />
+        {/* Display paragraph: If there is no games  */}
       </section>
     </div>
   );

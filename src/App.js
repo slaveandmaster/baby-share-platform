@@ -56,14 +56,21 @@ function App() {
   };
 
   //forms handlers
+  const onCreate = (data) => {
+    setShares((oldData)=> [...oldData, data]);
+  }
+
+  const onDelete = (shareId) => {
+    setShares((state) => state.filter((row) => row._id != shareId));
+  }
   const onEdit =(shareId,data) => {
-    setShares((state) => state.map((item) => item._id === shareId ? data : item));
+    setShares((state) => state.map((item) => (item._id === shareId ? data : item)));
   }
 
   return (
     <AuthContext.Provider value={{ auth, onLoginHandler, onLogoutHandler }}>
       <div>
-        <ShareContext.Provider value={{ shares, onSearch, onEdit }}>
+        <ShareContext.Provider value={{ shares, onSearch, onCreate , onDelete, onEdit }}>
           <Router>
             <Header />
             <main>

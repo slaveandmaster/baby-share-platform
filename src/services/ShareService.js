@@ -8,16 +8,28 @@ export const getAll = () => {
 };
 
 export const getById = async (shareId) => {
+  
   try {
     const result = await api.get(`${BASE_URL}/api/shares/${shareId}`);
+    console.log(result);
     const userInfo = {
         owner: result.ownerId[0]._id,
         username: result.ownerId[0].username,
         email: result.ownerId[0].email,
         isAdmin: result.ownerId[0].isAdmin
     }
+    const category = {
+      id: result.category[0]._id,
+      name: result.category[0].name,
+    }
+  //  let data = {
+  //     result,
+  //     userInfo,
+  //     category
+  //   }
+    console.log(category)
     //console.log(result.ownerId[0]);
-    return {result, userInfo};
+    return {...result , userInfo, category};
   } catch (error) {
     console.log(error);
   }
@@ -50,6 +62,24 @@ export const getLastFive = () => {
     }
 }
 
+export const create = (data) => {
+  try {
+    const result = api.post(`${BASE_URL}/api/shares`, data);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const update = (shareId, data) => {
+  try {
+      const result = api.put(`${BASE_URL}/api/shares/${shareId}`, data);
+      return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export const remove = (shareId) => {
     try {
       const result = api.del(`${BASE_URL}/api/shares/${shareId}`);
@@ -58,3 +88,4 @@ export const remove = (shareId) => {
       console.log(error);
     } 
   }
+

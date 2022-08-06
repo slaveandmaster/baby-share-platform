@@ -8,16 +8,19 @@ import * as ShareService from '../../../services/ShareService';
 
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
+import { ShareContext } from "../../../context/ShareContext";
 
 export default function DetailsItem() {
 
     const {auth} = useContext(AuthContext);
+    const { onDelete } = useContext(ShareContext);
+
     const {shareId} = useParams();
     const navigate = useNavigate();
     const [share, setShare] = useState([]);
 
     console.log(shareId);
-
+    console.log(share);
     //get share info
     useEffect(() => {
         ShareService.getById(shareId).then((data) => {
@@ -33,6 +36,12 @@ export default function DetailsItem() {
     //delete
     const deleteClickHandler = (shareId) => {
         console.log(shareId);
+        ShareService.remove(shareId).then(res => {
+            onDelete(shareId);
+            navigate('/catalog');
+        }).catch((err) => {
+          console.log(err);
+        })
         console.log("delete");
     }
   return (
@@ -43,18 +52,18 @@ export default function DetailsItem() {
         </article>
         <article className="product-info">
           <ul className="list-details">
-            <li className="list-details-item">Name: {share.result?.title}</li>
-            <li className="list-details-item">Category: {share.result?.category}</li>
+            <li className="list-details-item">Name: {share.title}</li>
+            <li className="list-details-item">Category: {share.category?.name}</li>
             <li className="list-details-item">
-              Short Desc: {share.result?.shortDesc}
+              Short Desc: {share.shortDesc}
             </li>
             <li className="list-details-item">
-              {share.result?.description}
+              Description: {share.description}
             </li>
             <li className="list-details-item">Contact: {share.userInfo?.email}</li>
           </ul>
           <div className="product-buttons">
-            <Link to={`/catalog/${share.result?._id}/edit`}><button>Edit</button></Link><button onClick={() => deleteClickHandler(share.result?._id)}>Delete</button>
+            <Link to={`/catalog/${share._id}/edit`}><button>Edit</button></Link><button onClick={() => deleteClickHandler(share._id)}>Delete</button>
           </div>
         </article>
       </section>
@@ -62,7 +71,7 @@ export default function DetailsItem() {
         <article className="user-info">Published by: {share.userInfo?.username}</article>
         <article className="user-raiting">Reviews: 50</article>
         <div className="reviews-list">
-          <h3>Reviews:</h3>
+          <h3 className="review-header">Reviews:</h3>
           <article className="review-item">
             <p className="review-author">Peter Jackson</p>
             <p className="review-comment">

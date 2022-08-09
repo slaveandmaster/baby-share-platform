@@ -11,7 +11,7 @@ export const getById = async (shareId) => {
   
   try {
     const result = await api.get(`${BASE_URL}/api/shares/${shareId}`);
-    console.log(result);
+    //console.log(result);
     const userInfo = {
         owner: result.ownerId[0]._id,
         username: result.ownerId[0].username,
@@ -27,7 +27,7 @@ export const getById = async (shareId) => {
   //     userInfo,
   //     category
   //   }
-    console.log(category)
+   // console.log(category)
     //console.log(result.ownerId[0]);
     return {...result , userInfo, category};
   } catch (error) {

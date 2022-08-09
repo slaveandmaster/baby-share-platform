@@ -44,7 +44,7 @@ export default function CatalogEdit() {
   const updateItem = (e) => {
     e.preventDefault();
     let formData = new FormData(e.target);
-    //let fields = Object.fromEntries(new FormData(e.target));
+    
     const fields = {
       title: formData.get('title'),
       category: formData.get('category'),
@@ -53,7 +53,7 @@ export default function CatalogEdit() {
       description: formData.get('description'),
       isActive: formData.get('isActive') == "on" ? true : false
     }
-    console.log(fields)
+    
     ShareService.update(shareId, fields).then(res => {
       console.log(res);
       onEdit(res);
@@ -63,27 +63,25 @@ export default function CatalogEdit() {
       console.log(error);
     })
   }
-  // console.log(shareId);
-  // console.log(selected);
-  // console.log(currentShare)
+
   useEffect(() => {
     ShareService.shareBydId(shareId).then((data) => {
       console.log(data);
       setCurrentShare(data);
     });
     ShareService.getCats().then((cat) => {
-      console.log(cat);
       setCategories(cat);
     });
   }, [shareId]);
-  // console.log(currentShare.category);
+  
 
  //TODO VALIDATIONS
  //validate fields
- const validateName = (e, len) => {
+ const validateName = (e, minlen, maxlen) => {
   setErrors((errors) => ({
     ...errors,
-    [e.target.name]: e.target.value.length < len,
+    [e.target.name]:
+      e.target.value.length < minlen || e.target.value.length > maxlen,
   }));
 };
 
@@ -101,7 +99,14 @@ export default function CatalogEdit() {
                 id="title"
                 placeholder=""
                 defaultValue={currentShare?.title}
+                onChange={onChangeHandler}
+                onBlur={(e) => validateName(e, 4, 20)}
               />
+              {errors.title && (
+              <p className="form-error">
+                Name should be at least 4 characters long and max 20!
+              </p>
+            )}
               <label htmlFor="category">Category</label>
               <select
                 name="category"
@@ -136,7 +141,13 @@ export default function CatalogEdit() {
                 placeholder="short description"
                 defaultValue={currentShare?.shortDesc}
                 onChange={onChangeHandler}
+                onBlur={(e) => validateName(e, 10, 20)}
               />
+              {errors.shortDesc && (
+              <p className="form-error">
+                Name should be at least 10 characters long and max 20!
+              </p>
+            )}
               <label htmlFor="description">Description</label>
               <textarea
                 name="description"
@@ -145,10 +156,16 @@ export default function CatalogEdit() {
                 rows="10"
                 defaultValue={currentShare?.description}
                 onChange={onChangeHandler}
+                onBlur={(e) => validateName(e, 10, 150)}
               ></textarea>
+              {errors.description && (
+              <p className="form-error">
+                Name should be at least 1 characters long and max 150!
+              </p>
+            )}
               <label htmlFor="isActive">Active</label>
               <input type="checkbox" name="isActive" checked={currentShare.isActive} onChange={onCheckBoxHandler}/>
-              <input type="submit" className="btn submit" value="Create" />
+              <input type="submit" className="btn submit" disabled={!isValid} value="Create" />
             </div>
           </form>
           {/* <img className="logo-img" src="./images/logo2.png"/> */}

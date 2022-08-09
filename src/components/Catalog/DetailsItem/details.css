@@ -80,7 +80,7 @@ label {
     color:#c8a275
     
 }
-li:not(:first-child) {
+ul.list-details li:not(:first-child) {
     padding-top: 20px;
 }
 

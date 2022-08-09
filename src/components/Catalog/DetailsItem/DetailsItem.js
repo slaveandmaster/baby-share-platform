@@ -24,10 +24,10 @@ export default function DetailsItem() {
     const isOwner = !!(auth.id === share.userInfo?.owner);
     const isAdmin = !!auth.isAdmin;
 
-    console.log(isOwner);
+    // console.log(isOwner);
 
-    console.log(shareId);
-    console.log(share);
+    // console.log(shareId);
+    // console.log(share);
     //get share info
     useEffect(() => {
         ShareService.getById(shareId).then((data) => {
@@ -39,10 +39,14 @@ export default function DetailsItem() {
     
     
     //handlers
-
+    const reviewClickHandler = (e) => {
+      e.preventDefault();
+      const { rating , comment } = new FormData(e.target);
+      console.log(rating +"-"+ comment);
+    }
     //delete
     const deleteClickHandler = (shareId) => {
-        console.log(shareId);
+        //console.log(shareId);
         ShareService.remove(shareId).then(res => {
             onDelete(shareId);
             navigate('/catalog');
@@ -113,7 +117,7 @@ export default function DetailsItem() {
           </article>
         </div>
         <article className="review-comments">
-          <form id="review">
+          <form id="review" onSubmit={reviewClickHandler}>
             <label htmlFor="rating">Rating</label>
             <select name="rating" id="rating">
               <option value=""></option>
@@ -125,7 +129,7 @@ export default function DetailsItem() {
             </select>
             <label htmlFor="comment">Comment</label>
             <textarea id="comment"></textarea>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Review" />
           </form>
         </article>
       </section>

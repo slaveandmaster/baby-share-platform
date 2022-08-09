@@ -47,78 +47,7 @@ export default function Catalog({itemsPerPage}) {
           ) : (
             <h3> No Records</h3>
           )}
-          {/* <article className="catalog-item">
-            <article className="catalog-item-img">
-              <img src="./images/toys.jpg" alt="" />
-            </article>
-            <p className="catalog-item-desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              nobis sed fugiat ea consectetur est illo nam, totam quo assumenda
-              iure accusantium mollitia necessitatibus magnam repudiandae qui
-              quisquam cupiditate! Eveniet?
-            </p>
-            <button className="catalog-item-view">Преглед</button>
-          </article>
-          <article className="catalog-item">
-            <article className="catalog-item-img">
-              <img src="./images/toys2.jpg" alt="" />
-            </article>
-            <p className="catalog-item-desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              nobis sed fugiat ea consectetur est illo nam, totam quo assumenda
-              iure accusantium mollitia necessitatibus magnam repudiandae qui
-              quisquam cupiditate! Eveniet?
-            </p>
-            <button className="catalog-item-view">Преглед</button>
-          </article>
-          <article className="catalog-item">
-            <article className="catalog-item-img">
-              <img src="./images/toys3.jpg" alt="" />
-            </article>
-            <p className="catalog-item-desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              nobis sed fugiat ea consectetur est illo nam, totam quo assumenda
-              iure accusantium mollitia necessitatibus magnam repudiandae qui
-              quisquam cupiditate! Eveniet?
-            </p>
-            <button className="catalog-item-view">Преглед</button>
-          </article>
-          <article className="catalog-item">
-            <article className="catalog-item-img">
-              <img src="./images/maze-and-puzzles.jfif" alt="" />
-            </article>
-            <p className="catalog-item-desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              nobis sed fugiat ea consectetur est illo nam, totam quo assumenda
-              iure accusantium mollitia necessitatibus magnam repudiandae qui
-              quisquam cupiditate! Eveniet?
-            </p>
-            <button className="catalog-item-view">Преглед</button>
-          </article>
-          <article className="catalog-item">
-            <article className="catalog-item-img">
-              <img src="./images/maze-and-puzzles.jfif" alt="" />
-            </article>
-            <p className="catalog-item-desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              nobis sed fugiat ea consectetur est illo nam, totam quo assumenda
-              iure accusantium mollitia necessitatibus magnam repudiandae qui
-              quisquam cupiditate! Eveniet?
-            </p>
-            <button className="catalog-item-view">Преглед</button>
-          </article>
-          <article className="catalog-item">
-            <article className="catalog-item-img">
-              <img src="./images/maze-and-puzzles.jfif" alt="" />
-            </article>
-            <p className="catalog-item-desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              nobis sed fugiat ea consectetur est illo nam, totam quo assumenda
-              iure accusantium mollitia necessitatibus magnam repudiandae qui
-              quisquam cupiditate! Eveniet?
-            </p>
-            <button className="catalog-item-view">Преглед</button>
-          </article> */}
+          
         </div>
         <ReactPaginate
           nextLabel="next >"
@@ -140,7 +69,6 @@ export default function Catalog({itemsPerPage}) {
           activeClassName="active"
           renderOnZeroPageCount={null}
         />
-        {/* Display paragraph: If there is no games  */}
       </section>
     </div>
   );

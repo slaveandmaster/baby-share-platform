@@ -6,7 +6,7 @@ export default function ProfileItem({ share }) {
   return (
     <div>
       <a onClick={(e) => navigate(`/catalog/${share._id}`)}><li className="myShare-items">
-        {share.title} {share.shortDesc}
+        <p>{share.title}  {share.shortDesc}</p>
       </li>
       </a>
     </div>

@@ -28,3 +28,12 @@ export const createReview = (userId, rating, comment) => {
         console.log(error);
     }
 }
+
+export const getTopUsers = () => {
+    try {
+        const result = api.get(`${BASE_URL}/api/topreview`);
+        return result;
+    } catch (error) {
+        console.log(error);
+    }
+}

@@ -38,7 +38,7 @@ function App() {
 
   useEffect(() => {
     ShareService.getAll().then((data) => {
-      console.log(data);
+      // console.log(data);
       setShares(data);
     });
   }, []);
@@ -103,25 +103,15 @@ function App() {
                     element={<CatalogEdit />}
                   />
                 </Route>
-                {/* <Route
-                path="/catalog/:gameId"
-                element={
-                  <DetailItem
-                    addComment={AddComment}
-                    deleteGame={onDeleteHandler}
-                  />
-                }
-              />
-                {/* <Route path="/create" element={<CreateItem />} /> */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/logout" element={<Logout />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/NotFound" element={<NotFound />} />
               </Routes>
             </main>
+           <Footer />
           </Router>
         </ShareContext.Provider>
-        <Footer />
         <ToastContainer
           position="top-right"
           autoClose={5000}

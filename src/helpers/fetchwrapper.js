@@ -21,7 +21,7 @@ const createOptions = (method = "get", data) => {
     method,
     headers: {},
   };
-  console.log(data);
+  
   if (data != undefined) {
     options.headers["Content-Type"] = "application/json";
     options.body = JSON.stringify(data);

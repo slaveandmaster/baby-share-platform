@@ -149,7 +149,7 @@ div.item-wrapper {
     color: #c8a275;
 }
 
-
+/* Top list component */
 .top-list-avatars {
     list-style: none;
     display: flex;
@@ -162,7 +162,9 @@ div.item-wrapper {
 }
 .top-list-item {
     width: 150px;
-    height: 150px;
+    height: auto;
+    text-align: center;
+    color:  #c8a275;
 }
 
 .top-list-item img {
@@ -184,4 +186,11 @@ div.item-wrapper {
     color: #c8a275;
     font-size: 20px;
     cursor: pointer;
+}
+
+/* Footer */
+
+.footer {
+    padding: 50px;
+    background-color: #f7f7f7;
 }

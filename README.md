@@ -7,7 +7,7 @@ Baby Share Platform is simple application  based on ReactJS. This is simple proj
 Authenticate users via JWT (login/signup pages + logout button on navigation menu)
 
 
-CRUD Shares(add, read, delete, update cars)
+CRUD Shares(add, read, delete, update shares)
 
 GET and display top users on home page
 
@@ -31,7 +31,7 @@ Sign in/Sign up pages and Logout (URL: /login, /register )
 
 Uses JWT (store the token in hook useLocalStorage)
 
-Catalog page (URL: /cars )
+Catalog page (URL: /catalog )
 
  - Search in catalog page
 
@@ -62,8 +62,9 @@ Profile page (URL: /profile)
 
 ReactJS 18
  - Use react context and props to access and modify state
-CSS
 
+CSS
+	
 Google Fonts
 
 React-toastify

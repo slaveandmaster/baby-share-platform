@@ -1,3 +1,87 @@
+# Baby Share Platform
+Baby Share Platform is simple application  based on ReactJS. This is simple project for ReactJS course.
+
+
+# General functionality:
+
+Authenticate users via JWT (login/signup pages + logout button on navigation menu)
+
+
+CRUD Shares(add, read, delete, update cars)
+
+GET and display top users on home page
+
+GET and display Last five added items on home page
+
+GET and display catalog with all cars in invetory
+
+GET user profile and user information
+
+
+# The general page breakdown looks like this:
+
+Home page (URL: / )
+
+List of top users
+
+List of last added items 
+
+
+Sign in/Sign up pages and Logout (URL: /login, /register )
+
+Uses JWT (store the token in hook useLocalStorage)
+
+Catalog page (URL: /cars )
+
+ - Search in catalog page
+
+ - Show all shares from inventory
+
+Show share details (URL: /catalog/:shareid)
+
+ - Edit Share (URL: /catalog/:shareid/edit)
+
+ - Delete Share (Implement local function in component)
+ 
+ - Rating and Review for publisher from other users
+
+Create new Share (URL: /create) 
+
+
+
+
+Profile page (URL: /profile)
+
+Show basic user info
+
+Show all user`s shares
+
+
+# Technologies and stuff
+## Frontend
+
+ReactJS 18
+ - Use react context and props to access and modify state
+CSS
+
+Google Fonts
+
+React-toastify
+
+React-paginate
+
+## Backend
+
+Mongoose
+
+Node.JS
+
+Express
+## Development server
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

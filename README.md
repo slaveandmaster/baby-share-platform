@@ -22,9 +22,9 @@ GET user profile and user information
 
 Home page (URL: / )
 
-List of top users
+ - List of top users
 
-List of last added items 
+ - List of last added items 
 
 
 Sign in/Sign up pages and Logout (URL: /login, /register )
@@ -52,9 +52,9 @@ Create new Share (URL: /create)
 
 Profile page (URL: /profile)
 
-Show basic user info
+ - Show basic user info
 
-Show all user`s shares
+ - Show all user`s shares
 
 
 # Technologies and stuff

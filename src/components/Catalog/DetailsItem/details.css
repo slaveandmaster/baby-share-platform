@@ -88,11 +88,13 @@ ul.list-details li:not(:first-child) {
     padding-top: 20px;
     margin-left: 40px;
     
+    
 }
 .product-buttons button {
     padding: 10px 20px;
     margin-right: 10px;
     border: 1px solid #c8a275;
+    color: #c8a275;
 }
 
 .user-review {

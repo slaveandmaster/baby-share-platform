@@ -12,21 +12,19 @@ export default function Home() {
 
   useEffect(() => {
     ShareService.getLastFive().then((data) => {
-      console.log(data.slice(0, 4));
       let items = data.slice(0, 4);
       setLastItems(items);
     });
     UserService.getTopUsers().then((top) => {
-      console.log(top.slice(0, 5));
       setTopUsers(top.slice(0, 5));
     });
   }, []);
 
-  //TODO map for items
+ 
   return (
     <div>
       <section className="slogon">
-        <p><q>When you make a child happy, the best gift you will ever get will be the smile of that child!</q></p>
+        <p><q>When you make a child feel happy, the best gift you will ever get is the smile of that child!</q></p>
       </section>
       <section className="last-items">
         <h3 className="last-items-title">

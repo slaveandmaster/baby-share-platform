@@ -67,7 +67,7 @@ export default function CreateItem() {
 
   return (
     <div>
-      <pre>{JSON.stringify(errors)}</pre>
+      {/* <pre>{JSON.stringify(errors)}</pre> */}
       <section className="create-container">
         <form id="create" onSubmit={onCreateItemHandler}>
           <div className="create-wrapper">

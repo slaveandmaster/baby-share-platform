@@ -156,6 +156,9 @@ div.item-wrapper {
 .item-desc {
     margin-top:10px;
     text-align: center;
+    color: #c8a275;
+    font-weight: bold;
+
 }
 .item-view {
     margin-left:80px;
@@ -195,7 +198,9 @@ div.item-wrapper {
     background-color: red;
     padding:5px;
 }
-
+.share-container {
+    text-align: center;
+}
 .myShares {
    list-style-type: none;
    text-decoration: none;
@@ -212,4 +217,13 @@ div.item-wrapper {
 .footer {
     padding: 50px;
     background-color: #f7f7f7;
+}
+
+/* PAge Not Found */
+.error-content {
+    color: #c8a275;
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+    margin:190px
 }

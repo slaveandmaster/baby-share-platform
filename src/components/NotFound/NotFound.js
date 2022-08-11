@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
 
 export default function NotFound() {
   return (
-    <div>Something Wrong was happend....! Error 404</div>
-  )
+		<div className="error-content">
+			<p>Something Wrong was happend....! Error 404</p>
+
+		</div>
+  );
 }

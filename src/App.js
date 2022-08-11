@@ -112,6 +112,7 @@ function App() {
                 <Route path="/logout" element={<Logout />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/NotFound" element={<NotFound />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
            <Footer />

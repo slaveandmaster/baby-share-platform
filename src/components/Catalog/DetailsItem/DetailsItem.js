@@ -52,7 +52,12 @@ export default function DetailsItem() {
       alert("You are already voted!");
       return;
     }
+
     const { rating, comment } = Object.fromEntries(new FormData(e.target));
+    if (!rating || !comment) {
+        alert('Rating and comment fields are required!');
+        return;
+    }
     //create request to make rating
     UserService.createReview(share.userInfo?.owner, rating, comment).then(
       (res) => {

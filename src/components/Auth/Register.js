@@ -30,12 +30,12 @@ export default function Register() {
   const validateName = (formValue) => {
     const errors = {};
     const mailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (!formValue.name) {
+    if (!formValue.username) {
       errors.username = "Username is required!";
-    } else if (formValue.name.length < 3) {
+    } else if (formValue.username.length < 3) {
       errors.username =
         "Username must be at least 3 characters long and maximum 20";
-    } else if (formValue.name.length > 20) {
+    } else if (formValue.username.length > 20) {
       errors.username = "Username must be no more than 20 characters";
     }
     if (!formValue.email) {
@@ -67,7 +67,7 @@ export default function Register() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const { name, email, password, confirmPass } = Object.fromEntries(
+    const { username, email, password, confirmPass } = Object.fromEntries(
       new FormData(e.target)
     );
     console.log(password);
@@ -77,7 +77,7 @@ export default function Register() {
       return;
     }
     //TODO form validation and fix error handling on request
-    register(name, email, password)
+    register(username, email, password)
       .then((res) => {
         if (res.code === 409) {
           return;
@@ -89,7 +89,7 @@ export default function Register() {
       .catch((err) => {
         toast.error(err.message.split(":")[1]);
       });
-    console.log(name);
+    console.log(username);
   };
 
   return (
@@ -107,11 +107,11 @@ export default function Register() {
                 console.log(err);
                 return <p>{err}</p>;
               })}
-            <label htmlFor="name">Name</label>
+            <label htmlFor="username">Name</label>
             <input
               type="text"
-              name="name"
-              id="name"
+              name="username"
+              id="username"
               placeholder=""
               onChange={onChangeHandler}
               onBlur={(e) => setErrors(validateName(values))}

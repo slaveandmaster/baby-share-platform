@@ -3,7 +3,7 @@ import * as api from "../helpers/fetchwrapper";
 const BASE_URL = "http://localhost:5000";
 
 export const getAll = () => {
-  const result = api.get(`${BASE_URL}/api/shares`);
+  const result = api.get(`${BASE_URL}/api/shares/published`);
   return result;
 };
 
@@ -49,7 +49,7 @@ export const getCats = () => {
 
 export const getLastFive = () => {
     try {
-        const result = api.get(`${BASE_URL}/api/shares`);
+        const result = api.get(`${BASE_URL}/api/shares/published`);
         return result;
     } catch (error) {
         console.log(error);

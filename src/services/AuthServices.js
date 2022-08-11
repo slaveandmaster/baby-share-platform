@@ -32,7 +32,7 @@ const logout = async (token) => {
 //     },
 //   });
   const result = await api.post(`${BASE_URL}/api/auth/logout`, { token })
-  console.log(result);
+  // console.log(result);
   return result;
 };
 

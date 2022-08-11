@@ -5,7 +5,7 @@ export default function LastItems({items}) {
     <div>
       <article className="item">
         <article className="item-img">
-          <img src={"./images/toys.jpg"} alt="" />
+          <img src={items.imageUrl} alt="" />
         </article>
         <p className="item-desc">
           {items.shortDesc}

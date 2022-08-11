@@ -19,7 +19,7 @@ export default function CatalogEdit() {
 
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
-  const { onEdit } = useContext(ShareContext);
+  const { shares, onEdit } = useContext(ShareContext);
 
   const [errors, setErrors] = useState({});
   const isValid = !Object.values(errors).some((x) => x);
@@ -55,9 +55,8 @@ export default function CatalogEdit() {
     }
     
     ShareService.update(shareId, fields).then(res => {
-      console.log(res);
-      onEdit(res);
-      navigate('/catalog');
+      onEdit(shareId,res);
+      navigate(`/catalog/${shareId}`);
       
     }).catch((error) => {
       console.log(error);
@@ -87,7 +86,7 @@ export default function CatalogEdit() {
 
   return (
     <div>
-      <pre>{JSON.stringify(currentShare)}</pre>
+      {/* <pre>{JSON.stringify(currentShare)}</pre> */}
       <div>
         <section className="create-container">
           <form id="create" onSubmit={updateItem}>
@@ -165,7 +164,7 @@ export default function CatalogEdit() {
             )}
               <label htmlFor="isActive">Active</label>
               <input type="checkbox" name="isActive" checked={currentShare.isActive} onChange={onCheckBoxHandler}/>
-              <input type="submit" className="btn submit" disabled={!isValid} value="Create" />
+              <input type="submit" className="btn submit" disabled={!isValid} value="Update" />
             </div>
           </form>
           {/* <img className="logo-img" src="./images/logo2.png"/> */}

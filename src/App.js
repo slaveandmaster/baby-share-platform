@@ -38,14 +38,12 @@ function App() {
 
   useEffect(() => {
     ShareService.getAll().then((data) => {
-      // console.log(data);
       setShares(data);
     });
   }, []);
 
   //handlers
   const onLoginHandler = (userData) => {
-    console.log(userData);
     setAuth(userData);
   };
   //register handler
@@ -72,8 +70,15 @@ function App() {
   };
   const onEdit = (shareId, data) => {
     setShares((state) =>
-      state.map((item) => (item._id === shareId ? data : item))
+    state.map((item) => {
+      if (shareId === item._id) {
+        return data;
+      } else {
+        return item;
+      }
+    })
     );
+    console.log(shares);
   };
 
   return (

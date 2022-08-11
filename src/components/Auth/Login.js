@@ -18,7 +18,6 @@ export default function Login() {
   const onLogin = (e) => {
     e.preventDefault();
     const { username, password } = Object.fromEntries(new FormData(e.target));
-    console.log(e.target);
     if (username == "" || password == "") {
       setErrors((errors) => ({
         ...errors,
@@ -27,7 +26,7 @@ export default function Login() {
       return;
     }
 
-    console.log(errors);
+    
     AuthService.login(username, password)
       .then((res) => {
         // if (res) {
@@ -63,9 +62,6 @@ export default function Login() {
             )}
             <label htmlFor="password">Password</label>
             <input type="password" name="password" id="password" />
-            {/* {errors.error && (
-              <p className="form-error">Username and Password is required!</p>
-            )} */}
             <input type="submit" className="btn submit" value="Login" />
           </div>
         </form>

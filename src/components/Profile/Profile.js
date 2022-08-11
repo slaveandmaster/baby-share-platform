@@ -12,7 +12,7 @@ export default function Profile() {
 
   const { auth } = useContext(AuthContext);
 
-  console.log(auth);
+  
   const userId = auth.id;
   const [userData, setUserData ] = useState();
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function Profile() {
 <section className="share-container">
     <h1>All my shares</h1>
     {userData?.myShares.length > 0 ? (
-            userData?.myShares.map((s,i) => <ul className='myShares'><ProfileItem  key={i + 1} share={s}/> </ul>)
+            userData?.myShares.map((s,i) => <ul className='myShares'><ProfileItem  key={s._id} share={s}/> </ul>)
           ) : (
             <h3> No Records</h3>
           )}

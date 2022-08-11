@@ -52,6 +52,8 @@ div.catalog-wrapper {
 .catalog-item-desc {
     margin-top:10px;
     text-align: center;
+    color: #c8a275;
+    font-weight: 600;
 }
 .catalog-item-view {
     margin-left:80px;

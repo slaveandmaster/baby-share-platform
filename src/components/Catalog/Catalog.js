@@ -8,24 +8,18 @@ import { ShareContext } from "../../context/ShareContext";
 
 import CatalogItem  from '../Catalog/CatalogItem/CatalogItem';
 
+
 import './catalog.css';
 export default function Catalog({itemsPerPage}) {
 
-  const { shares } = useContext(ShareContext);
+ const { shares } = useContext(ShareContext);
 
   //pagination settings
+  
   const [currentItems, setCurrentItems] = useState([...shares]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   
-  useEffect(() => {
-    const endOffset = Number(itemOffset) + Number(itemsPerPage);
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-    setCurrentItems(shares.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(shares.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage, shares]);
-
-
   const handlePageClick = (e) => {
     const newOffset = (e.selected * itemsPerPage) % shares.length;
     console.log(
@@ -33,6 +27,16 @@ export default function Catalog({itemsPerPage}) {
     );
     setItemOffset(newOffset);
   };
+  
+
+  useEffect(() => {
+    const endOffset = Number(itemOffset) + Number(itemsPerPage);
+    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    setCurrentItems(shares.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(shares.length / itemsPerPage));
+  }, [shares , itemOffset]);
+
+
   
   return (
     <div>

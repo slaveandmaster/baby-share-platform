@@ -18,7 +18,7 @@ h1 {
     font-family: 'Rouge Script', cursive;
     font-size: 58px;
 }
-h3 {
+h3, .slogon {
     font-family: 'Rouge Script', cursive;
     color: #c8a275;
 }
@@ -89,6 +89,24 @@ h1.site-info {
     font-weight: bold;
 }
 
+.slogon {
+    padding: 90px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-color: #f7f7f7;
+    margin-bottom: 10px;
+    color: #c8a275;
+    font-size: 42px;
+    text-align: center;
+    font-weight: bold;
+    background-image: url('../images/smiling-baby.jpg'), linear-gradient(rgba(0,0,0,1),rgba(0,0,0,1));
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position:center;
+    object-fit: cover;
+    background-size: cover;
+
+}
 .last-items-title {
     padding: 8px;
     background-color: #f7f7f7;
@@ -165,6 +183,7 @@ div.item-wrapper {
     height: auto;
     text-align: center;
     color:  #c8a275;
+    font-weight: 600;
 }
 
 .top-list-item img {

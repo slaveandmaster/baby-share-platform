@@ -10,11 +10,11 @@ export default function Search() {
   //get games ref from context to filter and get new array wit searched data
   const { shares, onSearch } = useContext(ShareContext);
   //get all games with initial value of games array and keep reference to all games
-  const [allShares, setAllShares] = useState(...shares);
+  const [allShares, setAllShares] = useState([]);
   //filter data by search term if search field empty return all records in other way return filtered data
   const filtered = !search
     ? allShares
-    : shares.filter((share) =>
+    : allShares.filter((share) =>
         share.title.toLowerCase().includes(search.toLowerCase())
       );
   
@@ -32,7 +32,6 @@ export default function Search() {
   useEffect(() => {
     ShareService.getAll().then((res) => {
       setAllShares(res);
-      console.log(allShares);
     });
   }, []);
 
@@ -45,7 +44,7 @@ export default function Search() {
           name="search"
           onChange={onSearchHandler}
         />
-        {/* <input type="submit" name="search" />  */}
+        {/* <input type="submit" name="search" onClick={(e) => onSubmit(e)} />  */}
       </form>
     </div>
   );

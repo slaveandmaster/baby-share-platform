@@ -25,6 +25,9 @@ export default function Home() {
   //TODO map for items
   return (
     <div>
+      <section className="slogon">
+        <p><q>When you make a child happy, the best gift you will ever get will be the smile of that child!</q></p>
+      </section>
       <section className="last-items">
         <h3 className="last-items-title">
           <i className="fa-solid fa-circle-arrow-right"></i>Последно добавени

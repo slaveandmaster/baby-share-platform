@@ -42,7 +42,6 @@ const get = (url) => {
 }
 
 const post = (url, data) => {
-    console.log(data);
     return request(url, createOptions('post', data));
 }
 

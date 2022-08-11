@@ -56,7 +56,7 @@ export default function Register() {
 
   //error handling
   useEffect(() => {
-    console.log(Object.keys(errors).length);
+    // console.log(Object.keys(errors).length);
     if (Object.keys(errors).length === 0) {
       setIsDisabled(false);
     } else {
@@ -70,7 +70,7 @@ export default function Register() {
     const { username, email, password, confirmPass } = Object.fromEntries(
       new FormData(e.target)
     );
-    console.log(password);
+    
     const confirmPassword = new FormData(e.target).get("confPassword");
     if (password != confirmPassword) {
       toast.error("Password don`t mactch!");
@@ -89,14 +89,14 @@ export default function Register() {
       .catch((err) => {
         toast.error(err.message.split(":")[1]);
       });
-    console.log(username);
+    
   };
 
   return (
     <div>
       <pre>
-        {JSON.stringify(errors, null, 2)}
-        {JSON.stringify(values, null, 2)} {JSON.stringify(isDisabled)}
+        {/* {JSON.stringify(errors, null, 2)}
+        {JSON.stringify(values, null, 2)} {JSON.stringify(isDisabled)} */}
       </pre>
       <section className="register-container">
         <img className="logo-img" src="../images/logo2.png" />
